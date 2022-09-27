@@ -6,6 +6,7 @@ DEBUG = True
 INSTALLED_APPS += [
     'rest_framework',
     'drf_spectacular',
+    'system',
 ]
 
 REST_FRAMEWORK = {
