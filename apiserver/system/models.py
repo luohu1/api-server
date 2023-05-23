@@ -51,3 +51,6 @@ class User(AbstractUser):
     first_name = None
     last_name = None
     date_joined = None
+
+    class Meta:
+        db_table = 'sys_user'
