@@ -7,7 +7,7 @@ INSTALLED_APPS += [
     'rest_framework',
     'drf_spectacular',
     'system',
-    'tmp',
+    'myapp',
 ]
 
 REST_FRAMEWORK = {
