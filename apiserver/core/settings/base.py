@@ -130,4 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'system.User'
 
-SIMPLEUI_DEFAULT_THEME = 'admin.lte.css'
+SIMPLEUI_DEFAULT_THEME = 'ant.design.css'
