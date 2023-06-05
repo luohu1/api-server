@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
-        'USER': 'root',
+        'USER': 'admin',
         'PASSWORD': '123456',
         'NAME': 'drf_apiserver',
         'PORT': 3306,
