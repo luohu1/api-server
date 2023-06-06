@@ -22,7 +22,7 @@ class User(AbstractUser):
     )
     password = models.CharField(_("password"), max_length=128)
     email = models.EmailField(_("email address"), blank=True)
-    phone = models.CharField(_('phone'), max_length=20, blank=True, null=True)
+    mobile = models.CharField(_("mobile"), max_length=20, blank=True, null=True)
     is_superuser = models.BooleanField(
         _("superuser status"),
         default=False,
@@ -53,4 +53,24 @@ class User(AbstractUser):
     date_joined = None
 
     class Meta:
-        db_table = 'sys_user'
+        db_table = "sys_user"
+
+
+class Group(models.Model):
+    name = models.CharField(_("group name"), max_length=64, unique=True)
+    desc = models.CharField(_("description"), max_length=128, blank=True, null=True)
+    created_at = models.DateTimeField(_("create time"), auto_now_add=True)
+    updated_at = models.DateTimeField(_("update time"), auto_now=True)
+
+    class Meta:
+        db_table = "sys_group"
+
+
+class Role(models.Model):
+    name = models.CharField(_("role name"), max_length=64, unique=True)
+    desc = models.CharField(_("description"), max_length=128, blank=True, null=True)
+    created_at = models.DateTimeField(_("create time"), auto_now_add=True)
+    updated_at = models.DateTimeField(_("update time"), auto_now=True)
+
+    class Meta:
+        db_table = "sys_role"
