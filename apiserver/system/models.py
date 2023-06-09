@@ -57,8 +57,8 @@ class User(AbstractUser):
 
 
 class Group(models.Model):
-    name = models.CharField(_("group name"), max_length=64, unique=True)
-    desc = models.CharField(_("description"), max_length=128, blank=True, null=True)
+    group_name = models.CharField(_("group name"), max_length=64, unique=True)
+    group_desc = models.CharField(_("group description"), max_length=128, blank=True, null=True)
     created_at = models.DateTimeField(_("create time"), auto_now_add=True)
     updated_at = models.DateTimeField(_("update time"), auto_now=True)
 
@@ -67,10 +67,23 @@ class Group(models.Model):
 
 
 class Role(models.Model):
-    name = models.CharField(_("role name"), max_length=64, unique=True)
-    desc = models.CharField(_("description"), max_length=128, blank=True, null=True)
+    role_name = models.CharField(_("role name"), max_length=64, unique=True)
+    role_desc = models.CharField(_("role description"), max_length=128, blank=True, null=True)
     created_at = models.DateTimeField(_("create time"), auto_now_add=True)
     updated_at = models.DateTimeField(_("update time"), auto_now=True)
 
     class Meta:
         db_table = "sys_role"
+
+
+class Policy(models.Model):
+    policy_name = models.CharField(_("policy name"), max_length=64, unique=True)
+    policy_desc = models.CharField(_("policy description"), max_length=128, blank=True, null=True)
+    policy_spec = models.JSONField(_("policy specification"), max_length=128, blank=True, null=True)
+    created_at = models.DateTimeField(_("create time"), auto_now_add=True)
+    updated_at = models.DateTimeField(_("update time"), auto_now=True)
+
+    class Meta:
+        db_table = "sys_policy"
+        verbose_name = "Policy"
+        verbose_name_plural = "Policies"

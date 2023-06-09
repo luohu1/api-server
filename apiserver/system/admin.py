@@ -8,7 +8,7 @@ class BaseAdmin(admin.ModelAdmin):
     actions_on_bottom = True
 
     def __init__(self, model, admin_site) -> None:
-        self.list_display = [field.name for field in model._meta.fields if field.name not in ['id', 'created_at', 'updated_at']]
+        self.list_display = [field.name for field in model._meta.fields if field.name not in ['created_at', 'updated_at']]
         super().__init__(model, admin_site)
 
 
@@ -21,4 +21,4 @@ class UserAdmin(admin.ModelAdmin):
         super().__init__(model, admin_site)
 
 
-admin.site.register([models.Group, models.Role], BaseAdmin)
+admin.site.register([models.Group, models.Role, models.Policy], BaseAdmin)
